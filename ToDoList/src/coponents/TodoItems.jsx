@@ -5,7 +5,7 @@ import delet from '../assets/delet.png'
 import edit from '../assets/Edit.png'
 
 
-const TodoItems = ({text}) => {
+const TodoItems = ({text , id, iscomplete, deleteTodo}) => {
   return (
 
     <div className='flex items-center my-3 gap-2'>
@@ -26,7 +26,7 @@ const TodoItems = ({text}) => {
 
       <div>
 
-        <img src={delet} alt="" className=' w-7 cursor-pointer'/>
+        <img onClick={()=>{deleteTodo(id)}} src={delet} alt="" className=' w-7 cursor-pointer'/>
          </div>
      
 

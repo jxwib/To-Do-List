@@ -17,6 +17,7 @@ const add = () => {
         return null;
   }
 
+  
   const newTodo = {
      id: Date.now(),
     text: inputText,
@@ -25,6 +26,17 @@ const add = () => {
     setTodoList((prev)=> [...prev,newTodo]);
     inputRef.current.value = "";
 }
+ 
+ {/* delet function */}
+const deleteTodo = (id) => {
+    setTodoList((prvTodos)=> {
+
+    return prvTodos.filter((todo) => todo.id !== id )
+
+        
+    })
+
+  }
 
 
   return (
@@ -54,13 +66,11 @@ text-lg font-medium Cursor-pointer'> ADD +   </button>
 {/*  list  */}
 
 {todolist.map((item, index)=>{
- return <TodoItems key={index} text={item.text} />
+ return <TodoItems key={index} text={item.text} id={item.id} iscomplete={item.iscomplete} 
+ deleteTodo={deleteTodo}/>
 
 })}
 
- 
-
-    
     </div>
   )
 }
