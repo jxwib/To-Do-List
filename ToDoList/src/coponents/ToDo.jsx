@@ -13,18 +13,17 @@ const ToDo = () => {
 const add = () => {
   const inputText = inputRef.current.value.trim();
 
-  if (condition) {
-
-    
+  if (inputText ==="" ) {
+        return null;
   }
 
   const newTodo = {
-     id: Date.now (),
+     id: Date.now(),
     text: inputText,
-    is complete; false,
+    iscomplete: false,
   }
-    setTodoList((prev)=> [...prev,newTodo] );
-    inputRef.current.value = "" ;
+    setTodoList((prev)=> [...prev,newTodo]);
+    inputRef.current.value = "";
 }
 
 
@@ -54,10 +53,12 @@ text-lg font-medium Cursor-pointer'> ADD +   </button>
 
 {/*  list  */}
 
- <TodoItems text =" learn coding"/>
-  <TodoItems text =" Water the plants"/>
- <TodoItems text =" have a good day :D"/>
+{todolist.map((item, index)=>{
+ return <TodoItems key={index} text={item.text} />
 
+})}
+
+ 
 
     
     </div>
